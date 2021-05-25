@@ -83,7 +83,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="showGameSummaryOnly:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j8m-k0-2ya"/>
+                                    <action selector="summaryButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uV1-NU-WHM"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -95,7 +95,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="restartGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wr4-q5-Fsx"/>
+                                    <action selector="restartGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lHQ-OW-oS7"/>
                                 </connections>
                             </button>
                         </barButtonItem>

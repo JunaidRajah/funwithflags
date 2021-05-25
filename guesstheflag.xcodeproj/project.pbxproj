@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1207D65265D326500347FFD /* FlagLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1207D64265D326500347FFD /* FlagLogic.swift */; };
 		A1C352842655946A004902FA /* incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1C352822655946A004902FA /* incorrect.wav */; };
 		A1C352852655946A004902FA /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1C352832655946A004902FA /* correct.wav */; };
 		A1D17FB22655282900C74A6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D17FB12655282900C74A6A /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1207D64265D326500347FFD /* FlagLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagLogic.swift; sourceTree = "<group>"; };
 		A1C352822655946A004902FA /* incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incorrect.wav; sourceTree = "<group>"; };
 		A1C352832655946A004902FA /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		A1D17FAE2655282900C74A6A /* guesstheflag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guesstheflag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				A1D17FB32655282900C74A6A /* SceneDelegate.swift */,
 				A1D17FB52655282900C74A6A /* ViewController.swift */,
 				A1D17FB72655282900C74A6A /* Main.storyboard */,
+				A1207D64265D326500347FFD /* FlagLogic.swift */,
 				A1D17FBA2655282C00C74A6A /* Assets.xcassets */,
 				A1D17FBC2655282C00C74A6A /* LaunchScreen.storyboard */,
 				A1D17FBF2655282C00C74A6A /* Info.plist */,
@@ -155,6 +158,7 @@
 			files = (
 				A1D17FB62655282900C74A6A /* ViewController.swift in Sources */,
 				A1D17FB22655282900C74A6A /* AppDelegate.swift in Sources */,
+				A1207D65265D326500347FFD /* FlagLogic.swift in Sources */,
 				A1D17FB42655282900C74A6A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
