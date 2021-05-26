@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A1207D65265D326500347FFD /* FlagLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1207D64265D326500347FFD /* FlagLogic.swift */; };
+		A1207D7B265E363500347FFD /* guesstheflagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1207D7A265E363500347FFD /* guesstheflagUITests.swift */; };
+		A1207D83265E3B0D00347FFD /* guesstheflagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1207D6C265E362900347FFD /* guesstheflagTests.swift */; };
+		A1207D84265E3CA400347FFD /* FlagLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1207D64265D326500347FFD /* FlagLogic.swift */; };
 		A1C352842655946A004902FA /* incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1C352822655946A004902FA /* incorrect.wav */; };
 		A1C352852655946A004902FA /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1C352832655946A004902FA /* correct.wav */; };
 		A1D17FB22655282900C74A6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D17FB12655282900C74A6A /* AppDelegate.swift */; };
@@ -18,8 +21,24 @@
 		A1D17FBE2655282C00C74A6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D17FBC2655282C00C74A6A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A1207D7D265E363500347FFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1D17FA62655282900C74A6A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1D17FAD2655282900C74A6A;
+			remoteInfo = guesstheflag;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		A1207D64265D326500347FFD /* FlagLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagLogic.swift; sourceTree = "<group>"; };
+		A1207D6A265E362900347FFD /* guesstheflagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guesstheflagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1207D6C265E362900347FFD /* guesstheflagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guesstheflagTests.swift; sourceTree = "<group>"; };
+		A1207D6E265E362900347FFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1207D78265E363500347FFD /* guesstheflagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guesstheflagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1207D7A265E363500347FFD /* guesstheflagUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guesstheflagUITests.swift; sourceTree = "<group>"; };
+		A1207D7C265E363500347FFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1C352822655946A004902FA /* incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incorrect.wav; sourceTree = "<group>"; };
 		A1C352832655946A004902FA /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		A1D17FAE2655282900C74A6A /* guesstheflag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guesstheflag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,6 +52,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A1207D67265E362900347FFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1207D75265E363500347FFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1D17FAB2655282900C74A6A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,6 +76,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1207D6B265E362900347FFD /* guesstheflagTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1207D6C265E362900347FFD /* guesstheflagTests.swift */,
+				A1207D6E265E362900347FFD /* Info.plist */,
+			);
+			path = guesstheflagTests;
+			sourceTree = "<group>";
+		};
+		A1207D79265E363500347FFD /* guesstheflagUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A1207D7A265E363500347FFD /* guesstheflagUITests.swift */,
+				A1207D7C265E363500347FFD /* Info.plist */,
+			);
+			path = guesstheflagUITests;
+			sourceTree = "<group>";
+		};
 		A1C352812655944F004902FA /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				A1D17FB02655282900C74A6A /* guesstheflag */,
+				A1207D6B265E362900347FFD /* guesstheflagTests */,
+				A1207D79265E363500347FFD /* guesstheflagUITests */,
 				A1D17FAF2655282900C74A6A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				A1D17FAE2655282900C74A6A /* guesstheflag.app */,
+				A1207D6A265E362900347FFD /* guesstheflagTests.xctest */,
+				A1207D78265E363500347FFD /* guesstheflagUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +142,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A1207D69265E362900347FFD /* guesstheflagTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1207D73265E362900347FFD /* Build configuration list for PBXNativeTarget "guesstheflagTests" */;
+			buildPhases = (
+				A1207D66265E362900347FFD /* Sources */,
+				A1207D67265E362900347FFD /* Frameworks */,
+				A1207D68265E362900347FFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = guesstheflagTests;
+			productName = guesstheflagTests;
+			productReference = A1207D6A265E362900347FFD /* guesstheflagTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A1207D77265E363500347FFD /* guesstheflagUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1207D7F265E363500347FFD /* Build configuration list for PBXNativeTarget "guesstheflagUITests" */;
+			buildPhases = (
+				A1207D74265E363500347FFD /* Sources */,
+				A1207D75265E363500347FFD /* Frameworks */,
+				A1207D76265E363500347FFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1207D7E265E363500347FFD /* PBXTargetDependency */,
+			);
+			name = guesstheflagUITests;
+			productName = guesstheflagUITests;
+			productReference = A1207D78265E363500347FFD /* guesstheflagUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		A1D17FAD2655282900C74A6A /* guesstheflag */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1D17FC22655282C00C74A6A /* Build configuration list for PBXNativeTarget "guesstheflag" */;
@@ -110,9 +200,16 @@
 		A1D17FA62655282900C74A6A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					A1207D69265E362900347FFD = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					A1207D77265E363500347FFD = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = A1D17FAD2655282900C74A6A;
+					};
 					A1D17FAD2655282900C74A6A = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -132,11 +229,27 @@
 			projectRoot = "";
 			targets = (
 				A1D17FAD2655282900C74A6A /* guesstheflag */,
+				A1207D69265E362900347FFD /* guesstheflagTests */,
+				A1207D77265E363500347FFD /* guesstheflagUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A1207D68265E362900347FFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1207D76265E363500347FFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1D17FAC2655282900C74A6A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +265,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A1207D66265E362900347FFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1207D84265E3CA400347FFD /* FlagLogic.swift in Sources */,
+				A1207D83265E3B0D00347FFD /* guesstheflagTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1207D74265E363500347FFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1207D7B265E363500347FFD /* guesstheflagUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1D17FAA2655282900C74A6A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,6 +294,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1207D7E265E363500347FFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1D17FAD2655282900C74A6A /* guesstheflag */;
+			targetProxy = A1207D7D265E363500347FFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A1D17FB72655282900C74A6A /* Main.storyboard */ = {
@@ -185,6 +323,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A1207D71265E362900347FFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = guesstheflagTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.junaid.guesstheflagTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1207D72265E362900347FFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = guesstheflagTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.junaid.guesstheflagTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A1207D80265E363500347FFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = guesstheflagUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.junaid.guesstheflagUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = guesstheflag;
+			};
+			name = Debug;
+		};
+		A1207D81265E363500347FFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = guesstheflagUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.junaid.guesstheflagUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = guesstheflag;
+			};
+			name = Release;
+		};
 		A1D17FC02655282C00C74A6A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -340,6 +552,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A1207D73265E362900347FFD /* Build configuration list for PBXNativeTarget "guesstheflagTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1207D71265E362900347FFD /* Debug */,
+				A1207D72265E362900347FFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1207D7F265E363500347FFD /* Build configuration list for PBXNativeTarget "guesstheflagUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1207D80265E363500347FFD /* Debug */,
+				A1207D81265E363500347FFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A1D17FA92655282900C74A6A /* Build configuration list for PBXProject "guesstheflag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -29,6 +29,11 @@ class FlagLogic {
     private (set) var correctFlags = 0
     private (set) var incorrectFlags = 0
     
+    enum RangeError: Error {
+        case NegativeNumber
+        case TooHighNumber
+    }
+    
     init(){
         newQuestion()
         questionCount = 0
@@ -41,15 +46,25 @@ class FlagLogic {
     }
     
     var getCorrectCountryName: String{
-        return countries[correctAnswer].uppercased()
+        return countries[correctAnswer]
     }
     
     var getCorrectCountryPosition: Int{
         correctAnswer
     }
     
-    func getCountryAtPosition(index: Int) -> String{
-        countries[index]
+    func getCountryAtPosition(index: Int) throws -> String{
+        if index < 0 {
+            throw RangeError.NegativeNumber
+        }
+        if index > countries.count-1 {
+            throw RangeError.TooHighNumber
+        }
+        return countries[index]
+    }
+    
+    var getQuestionCount: Int{
+        questionCount
     }
     
     func isCorrectAnswer(userAnswer: Int) -> Bool {

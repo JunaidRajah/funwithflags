@@ -46,9 +46,13 @@ class ViewController: UIViewController {
         setTitle()
     }
     private func setFlagImages() {
-        button1.setImage(UIImage(named: flagLogic.getCountryAtPosition(index: 0)), for: .normal)
-        button2.setImage(UIImage(named: flagLogic.getCountryAtPosition(index: 1)), for: .normal)
-        button3.setImage(UIImage(named: flagLogic.getCountryAtPosition(index: 2)), for: .normal)
+        do{
+            button1.setImage(UIImage(named: try flagLogic.getCountryAtPosition(index: 0)), for: .normal)
+            button2.setImage(UIImage(named: try flagLogic.getCountryAtPosition(index: 1)), for: .normal)
+            button3.setImage(UIImage(named: try flagLogic.getCountryAtPosition(index: 2)), for: .normal)
+        } catch {
+            
+        }
     }
     
     private func applyStylingToButtons(){
@@ -91,19 +95,23 @@ class ViewController: UIViewController {
     }
     
     private func setCorrectCountryText(){
-        label1.text = flagLogic.getCountryAtPosition(index: flagLogic.getCorrectCountryPosition).uppercased()
+        label1.text = flagLogic.getCorrectCountryName.uppercased()
     }
     
     
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title = ""
-        if flagLogic.isCorrectAnswer(userAnswer: sender.tag){
-            playSound("correct")
-            title = "That is CORRECT!"
-        } else {
-            playSound("incorrect")
-            title = "INCORRECT!\nYou chose the national flag of \(flagLogic.getCountryAtPosition(index: sender.tag))"
+        do{
+            if flagLogic.isCorrectAnswer(userAnswer: sender.tag){
+                playSound("correct")
+                title = "That is CORRECT!"
+            } else {
+                playSound("incorrect")
+                title = "INCORRECT!\nYou chose the national flag of \(try flagLogic.getCountryAtPosition(index: sender.tag).uppercased())"
+            }
+        } catch {
+            
         }
         showRelevantAlert(title: title)
     }
