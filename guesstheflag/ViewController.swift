@@ -17,35 +17,14 @@ class ViewController: UIViewController {
     
     private var audioPlayer: AVAudioPlayer?
     
-    private lazy var countries = [String]()
-    private lazy var score = 0
-    private lazy var correctAnswer = 0
-    private lazy var questionCount = 0
-    private lazy var correctFlags = 0
-    private lazy var incorrectFlags = 0
+    private lazy var flagLogic = FlagLogic()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCountries()
-        askQuestion(action: nil)
         applyStylingToButtons()
         applyStylingToText()
         setBackground()
-    }
-
-    private func loadCountries() {
-        countries += ["estonia",
-                      "france",
-                      "germany",
-                      "ireland",
-                      "italy",
-                      "monaco",
-                      "nigeria",
-                      "poland",
-                      "russia",
-                      "spain",
-                      "uk",
-                      "us"]
+        updateView()
     }
     
     private func setBackground(){
@@ -60,6 +39,21 @@ class ViewController: UIViewController {
         view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
     }
+    private func updateView(){
+        setFlagImages()
+        animateFlagMovement()
+        setCorrectCountryText()
+        setTitle()
+    }
+    private func setFlagImages() {
+        do{
+            button1.setImage(UIImage(named: try flagLogic.getCountryAtPosition(index: 0)), for: .normal)
+            button2.setImage(UIImage(named: try flagLogic.getCountryAtPosition(index: 1)), for: .normal)
+            button3.setImage(UIImage(named: try flagLogic.getCountryAtPosition(index: 2)), for: .normal)
+        } catch {
+            
+        }
+    }
     
     private func applyStylingToButtons(){
         button1.layer.borderWidth = 1
@@ -69,8 +63,6 @@ class ViewController: UIViewController {
         button1.layer.borderColor = UIColor.lightGray.cgColor
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
-        
-        
     }
     
     private func applyStylingToText(){
@@ -78,10 +70,7 @@ class ViewController: UIViewController {
         label2.font = UIFont(name: "Helvetica-Bold", size: 18.00)
     }
     
-    
-    
     private func animateFlagMovement(){
-        
         UIView.animate(withDuration: 1, animations: { [self] in
             self.button1.frame = CGRect(x: -200, y: button1.frame.origin.y, width: button1.frame.size.width, height: button1.frame.size.height)
             self.button2.frame = CGRect(x: 400, y: button2.frame.origin.y, width: button2.frame.size.width, height: button2.frame.size.height)
@@ -97,61 +86,62 @@ class ViewController: UIViewController {
     
     
     private func askQuestion(action: UIAlertAction!){
-        countries.shuffle()
-        
-        button1.setImage(UIImage(named: countries[0]), for: .normal)
-        button2.setImage(UIImage(named: countries[1]), for: .normal)
-        button3.setImage(UIImage(named: countries[2]), for: .normal)
-        animateFlagMovement()
-        correctAnswer = Int.random(in: 0...2)
-        title = "Score: \(score)".uppercased()
-        label1.text = countries[correctAnswer].uppercased()
-        
-        questionCount += 1
-        
+        flagLogic.newQuestion()
+        updateView()
     }
     
-    private func hasGameCompleted() -> Bool{
-        return (questionCount >= 10 ? true : false)
+    private func setTitle(){
+        title = "Score: \(flagLogic.score)".uppercased()
     }
+    
+    private func setCorrectCountryText(){
+        label1.text = flagLogic.getCorrectCountryName.uppercased()
+    }
+    
+    
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        (sender.tag == correctAnswer) ? playSound(true) : playSound(false)
-        let title = (sender.tag == correctAnswer) ? "That is CORRECT!" : "INCORRECT!\nYou chose the national flag of \(countries[sender.tag].uppercased())"
-        score = score + (sender.tag == correctAnswer ?  1 : -1)
-        correctFlags = correctFlags + (sender.tag == correctAnswer ?  1 : 0)
-        incorrectFlags = incorrectFlags + (sender.tag == correctAnswer ?  0 : 1)
-        hasGameCompleted() ? showGameSummary() : showAlert(title: title)
-        questionCount = questionCount >= 10 ? 0: questionCount
-        
-        
+        var title = ""
+        do{
+            if flagLogic.isCorrectAnswer(userAnswer: sender.tag){
+                playSound("correct")
+                title = "That is CORRECT!"
+            } else {
+                playSound("incorrect")
+                title = "INCORRECT!\nYou chose the national flag of \(try flagLogic.getCountryAtPosition(index: sender.tag).uppercased())"
+            }
+        } catch {
+            
+        }
+        showRelevantAlert(title: title)
     }
     
-    private func showAlert(title: String){
-        let alertController = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion(action: )))
-        
-        present(alertController, animated: true)
-        
-    }
-    
-    private func showGameSummary(){
-        let alertController = UIAlertController(title: "Game Summary", message: "Your score is \(score)\nYou got \(correctFlags) flags correct\nAnd \(incorrectFlags) flags incorrect", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion(action: )))
-        
-        present(alertController, animated: true)
-        
-    }
-    
-    @IBAction func showGameSummaryOnly(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Game Summary", message: "Your score is \(score)\nYou got \(correctFlags) flags correct\nAnd \(incorrectFlags) flags incorrect", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Continue", style: .default, handler: doNothing(action: )))
+    private func showAlert(title: String, message: String, handler: ((UIAlertAction) -> Void)?){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Continue", style: .default, handler: handler))
         
         present(alertController, animated: true)
     }
     
-    private func playSound(_ answer: Bool){
-        let pathToSound = (answer ? (Bundle.main.path(forResource: "correct", ofType: "wav")!) : (Bundle.main.path(forResource: "incorrect", ofType: "wav")!))
+    private func showRelevantAlert(title: String){
+        flagLogic.hasGameCompleted() ?
+            showAlert(title: "Game Summary",
+                     message: "Your score is \(flagLogic.score)\nYou got \(flagLogic.correctFlags) flags correct\nAnd \(flagLogic.incorrectFlags) flags incorrect",
+                     handler: askQuestion(action: ))
+            
+            : showAlert(title: title,
+                       message: "Your score is \(flagLogic.score)",
+                       handler: askQuestion(action: ))
+    }
+    
+    @IBAction func summaryButtonPressed(_ sender: UIButton) {
+        showAlert(title: "Game Summary",
+                  message: "Your score is \(flagLogic.score)\nYou got \(flagLogic.correctFlags) flags correct\nAnd \(flagLogic.incorrectFlags) flags incorrect",
+                  handler: nil)
+    }
+    
+    private func playSound(_ answer: String){
+        let pathToSound = Bundle.main.path(forResource: answer, ofType: "wav")!
         let url = URL(fileURLWithPath: pathToSound)
         
         do{
@@ -162,15 +152,10 @@ class ViewController: UIViewController {
         }
     }
     
-    private func doNothing(action: UIAlertAction!){
-    }
-    
-    @IBAction func restartGame(_ sender: UIButton) {
-        score = 0
-        questionCount = 0
-        correctFlags = 0
-        incorrectFlags = 0
-        askQuestion(action: nil )
+    @IBAction func restartGameButtonPressed(_ sender: UIButton) {
+        flagLogic.restartGame()
+        flagLogic.newQuestion()
+        updateView()
     }
 }
 
